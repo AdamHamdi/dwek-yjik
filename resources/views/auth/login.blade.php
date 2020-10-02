@@ -19,24 +19,19 @@
             <div class="card-body">
                 <form action="{{ route('user.auth') }}" method="post" >
                     {{ csrf_field() }}
-                    @if(Session::has('danger'))
-        <div class="alert alert-danger">
-            <a href="https://mailtrap.io/inboxes/1061224/messages/1862803465" class ><p class="text-dark">Nous avons envoyé un code de validation.</p> <u>Svp verifiez votre adresse email !</u></a>
-            {{ Session::get('danger') }} @php Session::forget('danger'); @endphp
-        </div>@endif
+
 
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">Adresse E-mail</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control " name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @if($errors->get('email'))
-                                @foreach($errors->get('email') as
-                                        $message)
-                                <label style="color:red">{{ $message }}</label>
-                                @endforeach
-                            @endif
+                      @foreach($errors->get('email') as
+                      $message)
+                      <label style="color:red">{{ $message }}</label>
+                      @endforeach @endif
                         </div>
                     </div>
 
@@ -44,14 +39,13 @@
                         <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe </label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password" class="form-control " name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror " name="password" required autocomplete="current-password">
 
                             @if($errors->get('password'))
                             @foreach($errors->get('password') as
-                                    $message)
+                            $message)
                             <label style="color:red">{{ $message }}</label>
-                            @endforeach
-                        @endif
+                            @endforeach @endif
                         </div>
                     </div>
 

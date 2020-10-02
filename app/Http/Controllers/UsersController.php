@@ -40,14 +40,12 @@ class UsersController extends Controller
                 return view('auth.login');
     }
     public function auth( Request $request){
-        $this->validate($request,[
-
-            'email'=>'required ',
-            'password'=>'required | min :8'
-
+         request()->validate([
+        'email' => 'required |email',
+        'password' => 'required| min:8',
         ]);
 
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+        if(Auth::attempt([ 'email' => $request->email, 'password' => $request->password ])){
             if(Auth::check() && Auth::user()->role==='admin'){
 
                 $pharmacies = DB::table('pharmacies')->select('pharmacies.adresse', 'pharmacies.name', 'pharmacies.id','pharmacies.phone','pharmacies.code_deontologie','pharmacies.mat_fiscale','pharmacies.etat', 'pharmacies.user_id', 'users.prenom', 'users.nom')->join('users', 'users.id', '=', 'pharmacies.user_id')->where('etat','en attente')->paginate(5);
@@ -71,7 +69,8 @@ class UsersController extends Controller
 
         }
     } else{
-                 return redirect()->route('login')->with('fail','Email ou mot de passe est ironé');
+        return redirect()->back()->withInput($request->only('email', 'remember'))->with('fail','Email ou mot de passe est incorrect ');
+       
         }
     }
     public function logout(){
