@@ -1,0 +1,64 @@
+<?php
+
+namespace App;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
+class User extends Authenticatable implements MustVerifyEmail
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+    
+
+
+    public function commandes(){
+        return $this->hasMany('App\Commande');
+    }
+    public function factures(){
+        return $this->hasMany('App\Facture');
+    }
+
+    public function livreurs(){
+        return $this->hasMany('App\Livreur');
+    }
+    public function clients(){
+        return $this->hasOne('App\Client');
+    }
+    public function admins(){
+        return $this->hasOne('App\Admin');
+    }
+//     public function sendEmailVerificationNotification()
+// {
+//     $this->notify(new \App\Notifications\CustomVerifyEmail);
+// }
+}
