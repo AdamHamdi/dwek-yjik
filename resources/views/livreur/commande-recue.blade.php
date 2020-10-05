@@ -19,12 +19,12 @@
 
                     <th style="border:2px solid gray;"class="text-center">Client</th>
 
-                    <th  style="border:2px solid gray;" class="text-center"> Adresse client </th>
+                    <th  style="border:2px solid gray;" class="text-center"> Adresse Client </th>
                     <th style="border:2px solid gray;"class="text-center">Télephone</th>
 
                     <th style="border:2px solid gray;"class="text-center">Statut</th>
-                   
-                    
+
+
                   </tr>
                 </thead>
                 <tbody>
@@ -39,13 +39,15 @@
 
                         <td style="border:2px solid gray;">{{ $comm->status_commande }}
                         </td>
-                       
-                        
+
+
                       </tr>
                    @endforeach
                    <div class="float-right">{{ $commandes->links() }}</div>
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+           
             </div>
           </div>
         </div>

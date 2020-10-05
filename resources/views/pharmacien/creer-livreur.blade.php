@@ -87,8 +87,9 @@
                         $message)
                         <label style="color:red">{{ $message }}</label>
                         @endforeach @endif</div>
+                        <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i> Ajouter </button>
+                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-plus-square"></i> Ajouter </button>
                   </form>
 
             </div>

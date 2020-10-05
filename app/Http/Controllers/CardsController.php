@@ -9,7 +9,12 @@ class CardsController extends Controller
 {
 
    public function pay(Request $request,$id){
-
+    request()->validate([
+        'cc_number' => 'required |min:16',
+        'cvv' => 'required| min:3|max:3',
+        'validity'=>'required',
+        ]);
+      
 
     // verfi num
     // select * from cards where cc_number ==
@@ -32,7 +37,7 @@ class CardsController extends Controller
 
 
 
-            return redirect('/client/factures/liste')->with("success", "Le paiement a été efféctué avec success");
+            return redirect('/client/factures/liste')->with("success", "Le paiement a été effectué avec succès");
         }else{
             return redirect()->back()->with("danger", "Opération échouée");
         }

@@ -38,7 +38,7 @@
                                         <li><a href="{{ route('medicaments.liste') }}">Médicaments</a></li>
                                         <li><a href="{{ route('votre.pharmacie') }}">Pharmacie</a></li>
 
-                                        <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
+                                        <li><a href="{{route('profile.Pharmacien')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
 
                                             <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                                         @endguest
@@ -100,14 +100,14 @@
                         <li class="menu_item menu_mm"><a href="{{ route('factures.liste') }}">Factures</a></li>
                         <li class="menu_item menu_mm"><a href="{{ route('medicaments.liste') }}">Médicaments</a></li>
                         <li class="menu_item menu_mm"><a href="{{ route('votre.pharmacie') }}">Pharmacie</a></li>
-                          <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
+                          <li><a href="{{route('profile.Pharmacien')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }} </a></li>
 
                         <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                         @endguest
                     </ul>
                 </div>
                 <div class="menu_extra">
-                   
+
                 </div>
 
             </div>

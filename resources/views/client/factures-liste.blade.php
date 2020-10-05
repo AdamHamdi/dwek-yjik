@@ -55,7 +55,7 @@
                                    <button href="{{ url('factures/'.$fact->id) }}" class="btn btn-sm btn-danger " style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
                             @else
                             <a href="{{ url('factures/'.$fact->id.'/details') }}" class="btn btn-sm btn-success " style="color:white"><i class="fas fa-eye"></i> Details</a>
-                                
+
 
                             @endif
                               </form>
@@ -67,6 +67,8 @@
 
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+        
             </div>
           </div>
         </div>

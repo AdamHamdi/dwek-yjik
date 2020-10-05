@@ -17,7 +17,7 @@
               <table class="table tablesorter table-bordered" id="" style="border:2px solid gray;">
                 <thead class="text-light bg-primary">
                   <tr>
-                    <th style="border:2px solid gray;" class="text-center">Refference</th>
+                    <th style="border:2px solid gray;" class="text-center">Référence</th>
                     <th style="border:2px solid gray;"class="text-center"> Nom </th>
                     <th style="border:2px solid gray;"class="text-center">Posologie</th>
                     <th style="border:2px solid gray;"class="text-center">Prix</th>
@@ -43,6 +43,8 @@
 
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+            
             </div>
           </div>
         </div>

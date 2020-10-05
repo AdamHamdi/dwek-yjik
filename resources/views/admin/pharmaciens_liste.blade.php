@@ -71,6 +71,8 @@
 
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+           
             </div>
           </div>
         </div>

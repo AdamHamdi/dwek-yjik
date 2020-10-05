@@ -68,6 +68,14 @@ Route::get('commandes/{id}/exedier', 'CommandesController@expedier')->name('comm
 Route::get('commandes/{id}/recevoir', 'CommandesController@recevoir')->name('commande.reçus');
 
 //client
+//livreurs
+Route::get('livreurs','UsersController@livreurs')->name('livreurs.liste');
+Route::get('pharmaciens','UsersController@pharmaciens')->name('pharmaciens.liste');
+Route::delete('pharmaciens/{id}', 'PharmaciensController@destroypharmacien');
+Route::get('clients','ClientController@clients')->name('clients.liste');
+Route::delete('clients/{id}', 'ClientController@destroyclient');
+Route::get('admin/livreurs','LivreurController@livreurs')->name('admin.livreurs');
+Route::delete('admin/livreurs/{id}', 'LivreurController@destroylivreur');
 //pharmacies
 
 Route::get('pharmacies/create','PharmaciesController@create')->name('pharmacie.ajouter');
@@ -112,9 +120,27 @@ Route::delete('factures/{id}', 'FacturesController@destroy');
 Route::put('factures/{id}', 'FacturesController@update');
 Route::get('/livreurs/factures/liste','FacturesController@indexlivreur')->name('livreur.factures-liste');
 Route::get('factures/{id}/livrer','FacturesController@livraison')->name('factures.livrer');
-
+Route::get('commandes/{id}/facture','FacturesController@detail_facture');
+Route::get('factures/{id}/voir-facture','FacturesController@voir_facture');
+Route::get('factures/{id}/details-facture','FacturesController@details_facture');
 Route::get('factures/{id}/paiement', 'FacturesController@paiement');
 Route::post('factures/{id}/payer', 'CardsController@pay')->name('paiement.payer');
+//clients profiles
+Route::get('clients/profile','ClientController@index')->name('profile.client');
+Route::put('clients/{id}', 'ClientController@update');
+Route::get('clients/{id}/edit', 'ClientController@edit');
+//admins profiles
+Route::get('admin/profile','AdminController@index')->name('profile.Admin');
+Route::put('admin/{id}', 'AdminController@update');
+Route::get('admin/{id}/edit', 'AdminController@edit');
+//Livreurs profiles
+Route::get('livreur/profile','LivreurController@index1')->name('profile.Livreur');
+Route::put('livreur/{id}', 'LivreurController@update');
+Route::get('livreur/{id}/edit', 'LivreurController@edit');
+//pharmaciens profiles
+Route::get('pharmacien/profile','PharmaciensController@index')->name('profile.Pharmacien');
+Route::put('pharmacien/{id}', 'PharmaciensController@update');
+Route::get('pharmacien/{id}/edit', 'PharmaciensController@edit');
 
 });
 

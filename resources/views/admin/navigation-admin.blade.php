@@ -38,7 +38,7 @@
 
                                         <li><a href="{{ route('admin.pharmacie') }}">Pharmacies</a></li>
 
-                                        <li><a class="dropdown-item" >{{ Auth::user()->nom }}</a></li>
+                                        <li><a  href="{{route('profile.Admin')}}" class="dropdown-item" >{{ Auth::user()->nom }}  </a></li>
 
                                             <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                                         @endguest
@@ -100,7 +100,7 @@
                         <li class="menu_item menu_mm"><a href="{{ route('clients.liste') }}">Clients</a></li>
 
                         <li class="menu_item menu_mm"><a href="{{ route('admin.pharmacie') }}">Pharmacie</a></li>
-                          <li><a class="dropdown-item" >{{ Auth::user()->nom }} </a></li>
+                          <li><a href="{{route('profile.Admin')}}" class="dropdown-item" >{{ Auth::user()->nom }} </a></li>
 
                         <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                         @endguest
@@ -108,7 +108,7 @@
                 </div>
                 <div class="menu_extra">
 
-                   
+
                 </div>
 
             </div>

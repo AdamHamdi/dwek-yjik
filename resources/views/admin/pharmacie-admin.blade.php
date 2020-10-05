@@ -26,9 +26,9 @@
                     <th style="border:2px solid gray;" class="text-center">Nom</th>
                     <th style="border:2px solid gray;"class="text-center"> Adresse </th>
                     <th style="border:2px solid gray;"class="text-center">Téléphone</th>
-                    <th style="border:2px solid gray;"class="text-center">Matricule fiscale</th>
+                    <th style="border:2px solid gray;"class="text-center">Matricule Fiscale</th>
 
-                    <th style="border:2px solid gray;"class="text-center">Code de déontologie</th>
+                    <th style="border:2px solid gray;"class="text-center">Code de Déontologie</th>
                     {{--  <th style="border:2px solid gray;"class="text-center">Etat</th>  --}}
                     <th style="border:2px solid gray;" class="text-center">Actions</th>
                   </tr>

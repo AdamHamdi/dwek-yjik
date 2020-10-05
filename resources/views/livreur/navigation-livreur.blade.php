@@ -35,7 +35,7 @@
                                         <li><a href="{{ route('commandes.livreur')}}">Commandes</a></li>
                                         <li><a href="{{route('livreur.factures-liste')}}">Factures</a></li>
 
-                                        <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
+                                        <li><a href="{{route('profile.Livreur')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }} </a></li>
 
                                             <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                                         @endguest
@@ -92,10 +92,10 @@
 
                         @else
 
-                        
+
                         <li class="menu_item menu_mm"><a href="{{ route('commandes.livreur') }}">Commandes</a></li>
                         <li class="menu_item menu_mm"><a href="{{route('livreur.factures-liste')}}">Factures</a></li>
-                          <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
+                          <li><a href="{{route('profile.Livreur')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
 
                         <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                         @endguest

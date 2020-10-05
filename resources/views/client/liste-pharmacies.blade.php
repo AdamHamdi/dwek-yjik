@@ -8,8 +8,8 @@
     <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title text-dark"> Liste des pharmacies : 
-              
+            <h4 class="card-title text-dark"> Liste des pharmacies :
+
             <div class="float-right">
               <form class="form-inline my-2 my-lg-0" action="{{route('pharmacies.search')}}" method="post">
             {{ csrf_field() }}
@@ -46,6 +46,8 @@
                        <div class="float-right">{{ $pharmacies->links() }}</div>
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+        
             </div>
           </div>
         </div>

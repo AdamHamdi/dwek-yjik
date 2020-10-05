@@ -18,7 +18,9 @@ class CommandesController extends Controller
     {
         $commandes = DB::table('pharmacies')->select('commandes.adresse','commandes.created_at' ,'commandes.status_commande', 'commandes.id', 'commandes.file','pharmacies.user_id', 'commandes.user_id', 'users.prenom', 'users.nom')
         ->join('users', 'users.id', '=', 'pharmacies.user_id')
-        ->join('commandes', 'pharmacies.id', '=', 'commandes.pharmacie_id')->where('status_commande','acceptée')->orwhere('status_commande','demandée')->orwhere('status_commande','expediée')->orwhere('status_commande','refusée')->orwhere('status_commande','reçue')->orwhere('status_commande','en cours')->orwhere('status_commande','payée')->where('pharmacies.user_id',auth()->user()->id)->orderBy('created_at','DESC')->paginate(5);
+        ->join('commandes', 'pharmacies.id', '=', 'commandes.pharmacie_id')->where('status_commande','acceptée')->orwhere('status_commande','demandée')
+        ->orwhere('status_commande','expediée')->orwhere('status_commande','refusée')
+        ->orwhere('status_commande','reçue')->orwhere('status_commande','en cours')->orwhere('status_commande','payée')->where('pharmacies.user_id',auth()->user()->id)->orderBy('created_at','DESC')->paginate(5);
         return view('pharmacien.commandes-liste',['commandes'=> $commandes]);
     }
     public function index1()
@@ -64,7 +66,7 @@ class CommandesController extends Controller
    $commande->pharmacie_id=$request->pharmacie_id;
    $commande->file=$name;
    $commande->save();
-   return redirect('/commandes/client')->with('success','Votre commande a été ajouté avec succes');
+   return redirect('/commandes/client')->with('success','Votre commande a été ajoutée avec succès');
     }
 
     /**
@@ -116,7 +118,7 @@ class CommandesController extends Controller
        $commande->pharmacie_id=$request->pharmacie_id;
        $commande->file=$name;
        $commande->save();
-       return redirect('/commandes/client')->with('warning','La commande a été modifier avec succes');
+       return redirect('/commandes/client')->with('warning','La commande a été modifiée avec succès');
     }
 
     /**
@@ -130,7 +132,7 @@ class CommandesController extends Controller
         $comm=Commande::findorFail($id);
          $comm->delete();//
         //dd($comm);
-        return redirect('/commandes/client')->with('danger','La commande a été supprimée avec succes');
+        return redirect('/commandes/client')->with('danger','La commande a été supprimée avec succès');
 
     }
     public function delete($id)
@@ -138,7 +140,7 @@ class CommandesController extends Controller
         $comm=Commande::findorFail($id);
          $comm->delete();//
         //dd($comm);
-        return redirect('commandes/')->with('danger','La commande a été supprimée avec succes');
+        return redirect('commandes/')->with('danger','La commande a été supprimée avec succès');
 
     }
     public function livreur(){
@@ -197,7 +199,7 @@ class CommandesController extends Controller
     {
 
         $comm = DB::table('commandes')->where('id', $id)->update(['status_commande' => 'expediée']);
-        return redirect('/commandes');
+        return redirect('/commandes/livreur');
     }
 
 }

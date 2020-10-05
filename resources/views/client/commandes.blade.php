@@ -28,10 +28,10 @@
               <table class="table tablesorter table-bordered" id="" style="border:2px solid gray;">
                 <thead class="text-light bg-primary">
                   <tr >
-                    <th  style="border:2px solid gray;" class="text-center"> Refference </th>
+                    <th  style="border:2px solid gray;" class="text-center"> Référence </th>
                     <th style="border:2px solid gray;"class="text-center">Pharmacie</th>
 
-                    <th style="border:2px solid gray;"class="text-center">Status</th>
+                    <th style="border:2px solid gray;"class="text-center">Statut</th>
                     {{--  <th style="border:2px solid gray;"class="text-center">Ordonnance</th>  --}}
                     {{--  <th style="border:2px solid gray;"class="text-center">Client</th>  --}}
                     <th style="border:2px solid gray;" class="text-center">Actions</th>
@@ -60,6 +60,7 @@
 
                                     <a href="{{ url('commandes/'.$comm->id.'/accepter') }}" class="btn btn-sm btn-success " style="color:white"><i class="fas fa-check-circle"></i> Accepter</a>
                                     <a href="{{ url('commandes/'.$comm->id.'/refuser') }}" type="submit" class="btn btn-warning btn-sm"><i class="fa fa-window-close"></i> Refuser</a>
+                                    <a href="{{url('commandes/'.$comm->id.'/facture')}}" class="btn btn-sm btn-info " style="color:white"><i class="fas fa-eye"></i> Details</a>
 
                                 @else
                                     <button class="btn btn-sm btn-danger" type ="submit" style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
@@ -73,6 +74,7 @@
                    <div class="float-right">{{ $commandes->links() }}</div>
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
             </div>
           </div>
         </div>

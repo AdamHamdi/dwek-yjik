@@ -63,14 +63,14 @@ class UsersController extends Controller
             }else{
                 $commandes = DB::table('pharmacies')->select('commandes.adresse', 'commandes.status_commande', 'commandes.id', 'commandes.file','pharmacies.user_id', 'commandes.user_id', 'users.prenom', 'users.nom')
                 ->join('users', 'users.id', '=', 'pharmacies.user_id')
-                ->join('commandes', 'pharmacies.id', '=', 'commandes.pharmacie_id')->where('status_commande','expediée')->orderBy('commandes.created_at','DESC')->paginate(5);
+                ->join('commandes', 'pharmacies.id', '=', 'commandes.pharmacie_id')->where('status_commande','payée')->orderBy('commandes.created_at','DESC')->paginate(5);
 
                 return view('livreur.commandes-livreur',['commandes'=> $commandes]);
 
         }
     } else{
         return redirect()->back()->withInput($request->only('email', 'remember'))->with('fail','Email ou mot de passe est incorrect ');
-       
+
         }
     }
     public function logout(){

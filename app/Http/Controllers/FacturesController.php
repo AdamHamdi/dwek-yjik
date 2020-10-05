@@ -31,7 +31,12 @@ class FacturesController extends Controller
     }
     public function indexlivreur()
     {
-        $factures = DB::table('factures')->select('factures.date_facturation', 'factures.id', 'factures.montant', 'pharmacies.name','factures.user_id', 'factures.commande_id', 'users.prenom', 'users.nom','commandes.status_commande')->join('users', 'users.id', '=', 'factures.user_id')->join('pharmacies', 'pharmacies.id', '=', 'factures.pharmacie_id')->join('commandes', 'commandes.id', '=', 'factures.commande_id')->paginate(5);
+        $factures = DB::table('factures')->select('factures.date_facturation', 'factures.id', 'factures.montant', 'pharmacies.name','factures.user_id', 'factures.commande_id', 'users.prenom', 'users.nom','commandes.status_commande')
+        ->join('users', 'users.id', '=', 'factures.user_id')
+        ->join('pharmacies', 'pharmacies.id', '=', 'factures.pharmacie_id')
+        ->join('commandes', 'commandes.id', '=', 'factures.commande_id')
+        ->where('status_commande','payée')
+        ->paginate(5);
 
         return view('livreur.factures-liste', ['factures' => $factures]);
     }
@@ -164,5 +169,50 @@ class FacturesController extends Controller
     {
         $fact=Facture::find($id)->delete();
         return redirect()->back()->with('danger','La facture a été supprimée avec succes');
+    }
+    public function detail_facture($id){
+        $factures = DB::table('factures')->select('factures.date_facturation', 'factures.id', 'factures.montant', 'pharmacies.name','factures.user_id', 'factures.commande_id', 'users.prenom', 'users.nom','commandes.status_commande')
+        ->join('users', 'users.id', '=', 'factures.user_id')
+        ->join('pharmacies', 'pharmacies.id', '=', 'factures.pharmacie_id')
+        ->join('commandes', 'commandes.id', '=', 'factures.commande_id')
+        ->where('factures.user_id',auth()->user()->id)->orderBy('factures.created_at','DESC')
+
+
+        ->where('commandes.id',$id)->paginate(5);
+
+
+
+        return view ('client.detail_factures',['facture'=>$factures]);
+
+    }
+    public function voir_facture($id){
+        $factures = DB::table('factures')->select('factures.date_facturation', 'factures.id', 'factures.montant', 'pharmacies.name','factures.user_id', 'factures.commande_id', 'users.prenom', 'users.nom','commandes.status_commande')
+        ->join('users', 'users.id', '=', 'factures.user_id')
+        ->join('pharmacies', 'pharmacies.id', '=', 'factures.pharmacie_id')
+        ->join('commandes', 'commandes.id', '=', 'factures.commande_id')
+        ->orderBy('factures.created_at','DESC')
+
+
+        ->where('commandes.id',$id)->paginate(5);
+
+
+
+        return view ('pharmacien.voir_factures',['facture'=>$factures]);
+
+    }
+    public function details_facture($id){
+        $factures = DB::table('factures')->select('factures.date_facturation', 'factures.id', 'factures.montant', 'pharmacies.name','factures.user_id', 'factures.commande_id', 'users.prenom', 'users.nom','commandes.status_commande')
+        ->join('users', 'users.id', '=', 'factures.user_id')
+        ->join('pharmacies', 'pharmacies.id', '=', 'factures.pharmacie_id')
+        ->join('commandes', 'commandes.id', '=', 'factures.commande_id')
+        ->orderBy('factures.created_at','DESC')
+
+
+        ->where('commandes.id',$id)->paginate(5);
+
+
+
+        return view ('livreur.details_factures',['factures'=>$factures]);
+
     }
 }

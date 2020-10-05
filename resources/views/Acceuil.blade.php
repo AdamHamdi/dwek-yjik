@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
   </head>
-  <body class="image" style="background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;">
+  <body class="image " style="background-repeat: no-repeat;background-attachment: fixed ;background-position: center;background-size: 70% 70%;">
     <div id="app">
     <div class="super_container">
 
@@ -75,7 +75,7 @@
 
 
     .image{
-        background-image: url('/images/backgroun_withlogo.jpg');
+        background-image: url('/images/background.jpg');
       }
   </style>
 

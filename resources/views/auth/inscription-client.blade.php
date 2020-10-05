@@ -84,6 +84,7 @@
                         $message)
                         <label style="color:red">{{ $message }}</label>
                         @endforeach @endif</div>
+                        
 
                     <button type="submit" class="btn btn-primary"><i class="fa fa-laptop"></i> S'INSCRIRE</button>
                   </form>

@@ -34,7 +34,7 @@
                                         <li><a href="{{ route('pharmacies.liste') }}">Pharmacies</a></li>
                                         <li><a href="{{ route('commandes.client') }}">Commandes</a></li>
                                         <li ><a href="{{ route('client.factures-liste') }}">Factures</a></li>
-                                        <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}<i class="fal fa-wifi-1"></i></a></li>
+                                        <li><a href="{{route('profile.client')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }} <i class="fal fa-wifi-1"></i></a></li>
 
                                             <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                                         @endguest
@@ -122,14 +122,14 @@
                         <li class="menu_item menu_mm"><a href="{{ route('pharmacies.liste') }}">Pharmacies</a></li>
                         <li class="menu_item menu_mm"><a href="{{ route('commandes.client') }}">Commandes</a></li>
                         <li class="menu_item menu_mm"><a href="{{ route('client.factures-liste') }}">Factures</a></li>
-                          <li><a class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
+                          <li class="menu_item menu_mm"><a href="{{route('profile.client')}}" class="dropdown-item" >{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</a></li>
 
                         <li><a class="dropdown-item" href="{{ route('users.logout') }}">Deconnexion</a></li>
                         @endguest
                     </ul>
                 </div>
                 <div class="menu_extra">
-                    
+
                 </div>
 
             </div>

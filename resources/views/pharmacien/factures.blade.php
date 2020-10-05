@@ -62,27 +62,12 @@
 
                 </tbody>
               </table>
-              <div class="float-right" >
-                  {{--  <form action="" method="post" style="visibility: hidden">
-                      <div class="form-group">
-                          <label for="my-input">Date de facturation</label>
-                          <input id="my-input" class="form-control" type="date" name="date_facturation" value="{{ date('Y-m-d ') }}">
-                      </div>
-                      <div class="form-group">
-                        <label for="my-input">Montant</label>
-                        <input id="my-input" class="form-control" type="text" name="montant" value="{{ $fact->sum('prix') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="my-input">Client</label>
-                        @if($commandes)
-                        <input id="my-input" class="form-control" type="text" name="montant" value="{{ $commandes->id }}">
-                        @endif  --}}
-                    </div>
-                    <div class="float-right">
-                    <a href="" class="btn btn-sm btn-info " style="color:white"><i class="fa fa-print"></i> Imprimer</a>
+              
+                    <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
-                 {{--  </form>  --}}
-            </div>
+
+                    <a href="" class="btn btn-sm btn-info " style="color:white"><i class="fa fa-print"></i> Imprimer</a>
+  </div>
 
             </div>
           </div>

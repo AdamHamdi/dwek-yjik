@@ -22,7 +22,7 @@
                       @endforeach @endif
                     </div>
                     <div class="form-group">
-                        <label for="code_deontologie">Code de déontologie* </label>
+                        <label for="code_deontologie">Code de Déontologie* </label>
                         <input type="text" class="form-control" required id="name" name="code_deontologie" placeholder="Code de deontologie " >
                         @if($errors->get('code_deontologie'))
                         @foreach($errors->get('code_deontologie') as
@@ -31,8 +31,8 @@
                         @endforeach @endif
                       </div>
                       <div class="form-group">
-                        <label for="mat_fiscale">La matricule fiscale * </label>
-                        <input type="text" class="form-control" required id="name" name="mat_fiscale" placeholder="La matricule fiscale " >
+                        <label for="mat_fiscale">Le Matricule Fiscale * </label>
+                        <input type="text" class="form-control" required id="name" name="mat_fiscale" placeholder="Le Matricule Fiscale " >
                         @if($errors->get('mat_fiscale'))
                         @foreach($errors->get('mat_fiscale') as
                         $message)
@@ -58,7 +58,7 @@
                         @endforeach @endif
                       </div>
                     <div class="form-group">
-                        <label for="convention_CNAM">La convention du CNAM* :</label>
+                        <label for="convention_CNAM">La Convention avec le CNAM* :</label>
                         <div class="radio">
                             <label><input type="radio" name="convention_CNAM" value="1" checked>Oui</label>
                           </div>
@@ -80,8 +80,9 @@
 
                     </div>
 
+                    <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
-                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter</button>
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Ajouter</button>
                   </form>
 
 

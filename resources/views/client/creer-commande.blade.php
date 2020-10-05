@@ -28,8 +28,11 @@
                                 <label style="color:red">{{ $message }}</label>
                                 @endforeach @endif
                       </div>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i> Commander</button>
+                      <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-paper-plane"></i> Commander</button>
                   </form>
+
 
             </div>
         </div>

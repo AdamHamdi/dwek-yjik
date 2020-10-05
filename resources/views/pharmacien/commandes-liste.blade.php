@@ -54,15 +54,20 @@
                             <form action="{{url('pharmaciens/commandes/'.$comm->id)}}" onsubmit="return confirm('Voulez vous vraiment supprimer cette commande ?');" method="post">
 
                                 {{ csrf_field() }} {{ method_field('DELETE') }}
-                            @if($comm->status_commande=='en cours')
-                                      <a href="{{url('commandes/'.$comm->id.'/details') }}" class="btn btn-sm btn-info" style="color:white"><i class="fas fa-eye"></i> Détails</a>
-                            <button class="btn btn-sm btn-danger" style="color:white"><i class="fas fa-trash"></i> Supprimer</button> </td>
-                            @elseif($comm->status_commande=='payée')
 
-                            <a href="{{url('commandes/'.$comm->id.'/exedier') }}" class="btn btn-sm btn-warning" style="color:white"><i class="fas fa-eye"></i> Expédiée</a>
-                              @else
-                            <button class="btn btn-sm btn-danger" style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
-                            @endif
+                                <a href="{{url('commandes/'.$comm->id.'/details') }}" class="btn btn-sm btn-info" style="color:white"><i class="fas fa-eye"></i> Détails</a>
+
+                            @if(($comm->status_commande=='demandée'))
+                            <a href="{{ url('commandes/'.$comm->id.'/traiter') }}" class="btn btn-sm btn-success" style="color:white"><i class="fas fa-check-square"></i> Traiter</a>
+                           <button class="btn btn-sm btn-danger" style="color:white"><i class="fas fa-trash"></i> Supprimer</button> </td>
+
+                            @elseif($comm->status_commande =='en cours')
+                              <button class="btn btn-sm btn-danger" style="color:white"><i class="fas fa-trash"></i> Supprimer</button> </td>
+
+                                                      @elseif($comm->status_commande=='refusée')
+                              <button class="btn btn-sm btn-danger" style="color:white"><i class="fas fa-trash"></i> Supprimer</button> </td>
+
+                               @endif
                         </form>
                         </td>
                         </tr>
@@ -70,6 +75,8 @@
                    <div class="float-right">{{ $commandes->links() }}</div>
                 </tbody>
               </table>
+              <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+
             </div>
           </div>
         </div>

@@ -19,13 +19,13 @@
 
                     <th style="border:2px solid gray;"class="text-center">Client</th>
 
-                    <th  style="border:2px solid gray;" class="text-center"> Adresse client </th>
+                    <th  style="border:2px solid gray;" class="text-center"> Adresse Client </th>
                     <th style="border:2px solid gray;"class="text-center">Télephone</th>
 
                     <th style="border:2px solid gray;"class="text-center">Statut</th>
-                   
+
                     <th style="border:2px solid gray;" class="text-center">Actions</th>
-                   
+
                   </tr>
                 </thead>
                 <tbody>
@@ -40,14 +40,21 @@
 
                         <td style="border:2px solid gray;">{{ $comm->status_commande }}
                         </td>
-                       
-                         <td style="border:2px solid gray;" ><a href="{{ url('commandes/'.$comm->id.'/recevoir') }}" class="btn btn-sm btn-success" style="color:white"><i class="fas fa-check-square"></i> Confirmer la récéption</a>
-                      
+                        <td style="border:2px solid gray;" >
+                        <a href="{{ url('factures/'.$comm->id.'/details-facture') }}" class="  btn btn-sm btn-info"><i class="fas fa-eye"></i> Voir facture</a>
+
+                        @if($comm->status_commande=='payée')
+                              <a href="{{url('commandes/'.$comm->id.'/exedier') }}" class="btn btn-sm btn-warning" style="color:white"><i class="fas fa-eye"></i> Expédier</a>
+                              @elseif($comm->status_commande=='expediée')
+                        <a href="{{ url('commandes/'.$comm->id.'/recevoir') }}" class="btn btn-sm btn-success" style="color:white"><i class="fas fa-check-square"></i> Confirmer la récéption</a>
+                           @endif
+                           </td>
                       </tr>
                    @endforeach
                    <div class="float-right">{{ $commandes->links() }}</div>
                 </tbody>
               </table>
+             
             </div>
           </div>
         </div>

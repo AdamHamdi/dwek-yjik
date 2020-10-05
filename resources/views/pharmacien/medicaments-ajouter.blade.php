@@ -71,8 +71,12 @@
 
                     </div>
 
+                    <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
-                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter</button>
+                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Ajouter</button>
+                    <a href="/factures" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-send"></i> Valider</a href="/factures">
+
+
                   </form>
 
 
