@@ -11,7 +11,7 @@
                 <div class="card-body">
                     @if(Session::has('danger'))
         <div class="alert alert-danger">
-            <a href="https://mailtrap.io/inboxes/1073467/messages/1879694240" class ><p class="text-dark">Nous avons envoyé un code de validation.</p> <u>Svp verifiez votre adresse email !</u></a>
+            <a href="https://mailtrap.io/inboxes/1061224/messages/1877054207" class ><p class="text-dark">Nous avons envoyé un code de validation.</p> <u>Svp verifiez votre adresse email !</u></a>
             {{ Session::get('danger') }} @php Session::forget('danger'); @endphp
         </div>@endif
 
