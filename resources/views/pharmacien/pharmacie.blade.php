@@ -27,7 +27,7 @@
                     <th style="border:2px solid gray;"class="text-center"> Adresse </th>
                     <th style="border:2px solid gray;"class="text-center">Téléphone</th>
                     <th style="border:2px solid gray;"class="text-center">Matricule Fiscale</th>
-
+                    <th style="border:2px solid gray;"class="text-center">Etat</th>
                     <th style="border:2px solid gray;"class="text-center">Code de Déontologie</th>
                     {{--  <th style="border:2px solid gray;"class="text-center">Convention CNAM</th>  --}}
                     <th style="border:2px solid gray;" class="text-center">Actions</th>
@@ -40,7 +40,8 @@
                         <td style="border:2px solid gray;">{{ $pharm->name}} </td>
                         <td style="border:2px solid gray;">{{ $pharm->adresse}} </td>
                         <td style="border:2px solid gray;">{{ $pharm->phone}} </td>
-                        <td style="border:2px solid gray;">{{ $pharm->mat_fiscale}} TND</td>
+                        <td style="border:2px solid gray;">{{ $pharm->mat_fiscale}}</td>
+                        <td style="border:2px solid gray;">{{ $pharm->etat}}</t>
                         <td style="border:2px solid gray;">{{ $pharm->code_deontologie}}</t>
                          {{--  <td style="border:2px solid gray;">
                          {{ $pharm->convention_CNAM}} </td>  --}}
@@ -49,9 +50,10 @@
 
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-
+                            @if($pharm->etat=='validée')
                             <a href="{{ url('livreurs/'.$pharm->id.'/create') }}" class="btn btn-sm btn-success " style="color:white"><i class="fa fa-plus"></i> Ajouter Livreur</a>
-                           <button type="submit" class="btn btn-danger btn-sm"><i class ="fas fa-trash"> </i> Supprimer</button>
+                            @endif
+                            <button type="submit" class="btn btn-danger btn-sm"><i class ="fas fa-trash"> </i> Supprimer</button>
 
                     </form>
                 </td>
@@ -63,7 +65,7 @@
                 </tbody>
               </table>
               <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
-            
+
             </div>
           </div>
         </div>

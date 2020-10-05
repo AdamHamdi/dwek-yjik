@@ -55,16 +55,18 @@
 
                                     <a href="{{ url('commandes/'.$comm->id.'/edit') }}" class="btn btn-sm btn-warning" style="color:white"><i class="fas fa-edit"></i> Modifier</a>
                                     <button class="btn btn-sm btn-danger" type ="submit" style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
+                                    @elseif(($comm->status_commande =='refusée'))
+                                    <button class="btn btn-sm btn-danger" type ="submit" style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
 
                                 @elseif($comm->status_commande ==='en cours')
 
                                     <a href="{{ url('commandes/'.$comm->id.'/accepter') }}" class="btn btn-sm btn-success " style="color:white"><i class="fas fa-check-circle"></i> Accepter</a>
                                     <a href="{{ url('commandes/'.$comm->id.'/refuser') }}" type="submit" class="btn btn-warning btn-sm"><i class="fa fa-window-close"></i> Refuser</a>
                                     <a href="{{url('commandes/'.$comm->id.'/facture')}}" class="btn btn-sm btn-info " style="color:white"><i class="fas fa-eye"></i> Details</a>
+                             
 
                                 @else
-                                    <button class="btn btn-sm btn-danger" type ="submit" style="color:white"><i class="fas fa-trash"></i> Supprimer</button>
-
+                                <a href="{{url('commandes/'.$comm->id.'/facture')}}" class="btn btn-sm btn-info " style="color:white"><i class="fas fa-eye"></i> Details</a>
                                 @endif
                              </form>
                         </td>

@@ -13,7 +13,7 @@
 <br><div>
 <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
-                   @if($commandes->status_commande!='payée')or($commandes->status_commande!='expediée')or ($commandes->status_commande!='reçue')
+                   @if(($commandes->status_commande!='payée')or($commandes->status_commande!='expediée')or ($commandes->status_commande!='reçue'))
                        <a href="{{ url('factures/'.$commandes->id.'/create') }}" class="  btn btn-sm btn-success"><i class="fas fa-file-invoice"></i> Préparer facture</a>
 
                 @endif

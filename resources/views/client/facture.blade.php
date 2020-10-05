@@ -63,16 +63,13 @@
                 </tbody>
               </table>
               <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary " style="color:white"><i class="fas fa-arrow-circle-left"></i> Retour</a>
-        
-              <div class="float-right" >
 
-                    </div>
-                    <div class="float-right">
+
                         @if(( App\Commande::findorFail($cmd->commande_id)->status_commande !='payée') && ( App\Commande::findorFail($cmd->commande_id)->status_commande !='expediée'))
                              <a href="{{ url('factures/'.$cmd->id.'/paiement') }}" class="btn btn-sm btn-info " style="color:white"><i class="fas fa-money-bill-wave"></i> Paiement</a>
 
                              @endif
-            </div>
+           
 
             </div>
           </div>

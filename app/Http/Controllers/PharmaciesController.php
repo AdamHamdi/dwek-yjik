@@ -31,7 +31,9 @@ class PharmaciesController extends Controller
     }
     public function index2()
     {
-        $pharmacies = Pharmacie::orderBy('created_at','DESC')->where('etat','validée')->where('pharmacies.user_id',auth()->user()->id)->paginate(5);
+        $pharmacies = Pharmacie::orderBy('created_at','DESC')
+        //->where('etat','validée')
+        ->where('pharmacies.user_id',auth()->user()->id)->paginate(5);
 
         // $pharmacies=Pharmacie::orderBy('created_at','desc')->paginate(5);
 
